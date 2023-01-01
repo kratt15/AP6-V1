@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   
  
-    <title>Starter Template · Bootstrap v5.3</title>
+    <title>apprentissage</title>
 
     <link rel="canonical" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
 
@@ -86,7 +86,7 @@
   </header>
 
   <main>
-    <h1>Get started with Bootstrap</h1>
+    <h1>Get started </h1>
     <p class="fs-5 col-md-8"><?=  $content;  ?></p>
 
   
