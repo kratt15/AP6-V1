@@ -12,12 +12,13 @@ if (isset($_GET['p'])){
 
 
 //initialisation des objets
-$db =new App\Database('blog');
 
 
 ob_start();
 if($p ==='home'){
+
    require'../pages/home.php'; 
+   
 }elseif($p==='article'){
 
     require'../pages/single.php';
