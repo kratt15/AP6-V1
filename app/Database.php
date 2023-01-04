@@ -18,7 +18,7 @@ use \PDO;
 
         }
 
-        Private function getPDO(){
+        private function getPDO(){
             
             if($this->pdo === null){
 
@@ -32,11 +32,23 @@ use \PDO;
             return $this->pdo;
         }
 
-        public function query($statement,$class_name){
+        public function query($statement,$class_name,$one = false){
 
             $req=$this->getPDO()->query($statement);
 
-            $datas = $req->fetchAll(PDO::FETCH_CLASS,$class_name);
+            $req->setFetchMode(PDO::FETCH_CLASS,$class_name);
+
+            if($one){
+                
+                $datas = $req->fetch();
+
+            } else {
+
+                $datas = $req->fetchAll(); 
+
+            }
+
+
 
             return $datas;
             
@@ -44,9 +56,9 @@ use \PDO;
 
         public function prepare($statement,$attributes,$class_name,$one=false){
 
-            $req = $this-> getPDO()->prepare($statement);
+            $req = $this->getPDO()->prepare($statement);
 
-            $req-> execute($attributes);
+            $req->execute($attributes);
 
             $req->setFetchMode(PDO::FETCH_CLASS,$class_name);
 
