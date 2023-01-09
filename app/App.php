@@ -3,6 +3,7 @@
 
     class App{
 
+        public $title ="Mon super site";
         private static $_instance;
 
         private static function getInstance(){

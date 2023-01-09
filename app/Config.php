@@ -13,7 +13,7 @@ class Config {
             self::$_instance =new Config();
 
         }
-        return self::$_instance
+        return self::$_instance;
 
     }
 
