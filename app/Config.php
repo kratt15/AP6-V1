@@ -2,7 +2,7 @@
 namespace App;
 
 class Config {
-
+// singleton
     private $settings=[];
     private static $_instance;
 
@@ -16,6 +16,8 @@ class Config {
         return self::$_instance;
 
     }
+// fin singletton
+
 
 
     public function __construct(){

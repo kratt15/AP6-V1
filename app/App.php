@@ -4,19 +4,35 @@
     class App{
 
         public $title ="Mon super site";
+        private $db_instance;
         private static $_instance;
-
-        private static function getInstance(){
-           if (is_null($_instance)) {
+        
+        public static function getInstance(){
+           if (is_null(self::$_instance)) {
 
              self::$_instance = new App();
            }
            return self::$_instance;
         }
+        // factory
+        public static function getTable($name){
 
+            $class_name='\\App\\Table\\'.ucfirst($name).'Table';
 
+            return new $class_name();
+        }
 
+        public function getDb(){
 
+            $config = Config::getInstance();
+
+            if (is_null($this->db_instance)){
+            $this->db_instance = new Database($config->get('db_name'),$config->get('db_pass'),$config->get('db_host'))
+        }
+
+          retrun $this->db_instance;
+
+        }  
 
 
 

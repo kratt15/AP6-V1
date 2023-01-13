@@ -2,7 +2,13 @@
   require '../app/Autoloader.php';
     App\Autoloader::register();
  
-
+   
+    $app = App\App::getInstance();
+    $post =  $app->getTable('Posts');
+    $categories = $app->getTable('Categories');
+   
+     
+    // var_dump($posts);
 
 
 
