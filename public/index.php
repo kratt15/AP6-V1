@@ -4,11 +4,12 @@
  
    
     $app = App\App::getInstance();
-    $post =  $app->getTable('Posts');
+
+    $posts =  $app->getTable('Posts');
     $categories = $app->getTable('Categories');
    
      
-    // var_dump($posts);
+    var_dump($posts->all());
 
 
 

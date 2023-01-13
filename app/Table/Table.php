@@ -6,9 +6,12 @@ namespace App\Table;
   class Table{
 
     protected $table;
+    protected $db;
 
-    public function __construct(){
 
+    public function __construct(\App\Database\MysqlDatabase $db){
+
+      $this->db=$db;
         // var_dump($this);
       if(is_null($this->table)){
           
@@ -20,6 +23,10 @@ namespace App\Table;
       }
     }
   
+    public function all(){
+      return $this->db->query('SELECT * FROM articles');
+
+    }
 
   }
 
