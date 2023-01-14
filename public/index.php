@@ -1,7 +1,7 @@
  <?php 
-  require '../app/Autoloader.php';
-    App\Autoloader::register();
- 
+  
+    require'app/App.php';
+    App::load();
    
     $app = App\App::getInstance();
 
@@ -19,6 +19,8 @@
 
 
 //ancienne moyen de le faire  
+// require '../app/Autoloader.php';
+//     App\Autoloader::register();
 // if (isset($_GET['p'])){
 //     $p =$_GET['p'];
 

@@ -1,7 +1,7 @@
 <?php 
 
-namespace App\Table;
-
+namespace Core\Table;
+use \Core\Database\Database;
 
   class Table{
 
@@ -9,7 +9,7 @@ namespace App\Table;
     protected $db;
 
 
-    public function __construct(\App\Database\MysqlDatabase $db){
+    public function __construct(Database $db){
 
       $this->db=$db;
         // var_dump($this);

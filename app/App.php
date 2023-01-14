@@ -1,5 +1,5 @@
 <?php    
-    namespace App;
+    // namespace App;
 
     class App{
 
@@ -14,6 +14,15 @@
            }
            return self::$_instance;
         }
+
+        public static function load(){
+            session_start();
+            require 'Autoloader.php';
+               App\Autoloader::register();
+
+            require '../Core/Autoloader.php';
+               Core\Autoloader::register(); 
+        }
         // factory
         public  function getTable($name){
 
@@ -27,6 +36,7 @@
             $config = Config::getInstance();
 
             if (is_null($this->db_instance)){
+
             $this->db_instance = new Database\MysqlDatabase($config->get('db_name'),$config->get('db_pass'),$config->get('db_host'));
         }
 
