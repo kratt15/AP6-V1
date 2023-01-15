@@ -1,5 +1,7 @@
 <?php    
     // namespace App;
+use Core\Config;
+use Core\Database\MysqlDatabase;
 
     class App{
 
@@ -17,10 +19,10 @@
 
         public static function load(){
             session_start();
-            require 'Autoloader.php';
+            require ROOT.'/app/Autoloader.php';
                App\Autoloader::register();
 
-            require '../Core/Autoloader.php';
+            require ROOT.'/core/Autoloader.php';
                Core\Autoloader::register(); 
         }
         // factory
@@ -33,11 +35,11 @@
 
         public function getDb(){
 
-            $config = Config::getInstance();
+            $config = Config::getInstance(ROOT.'/config/config.php');
 
             if (is_null($this->db_instance)){
 
-            $this->db_instance = new Database\MysqlDatabase($config->get('db_name'),$config->get('db_pass'),$config->get('db_host'));
+            $this->db_instance = new MysqlDatabase($config->get('db_name'),$config->get('db_pass'),$config->get('db_host'));
         }
 
           return $this->db_instance;

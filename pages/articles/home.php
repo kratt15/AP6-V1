@@ -2,7 +2,7 @@
     <div class="col-sm-8">
         
 
-<?php  foreach( App\Table\Article::getLast() as $post): ?>
+<?php  foreach( App::getInstance()->getTable('Post')->last() as $post): ?>
 
     
     
