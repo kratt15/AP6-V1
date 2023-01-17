@@ -17,7 +17,7 @@ use \Core\Database\Database;
           
        $parts = explode('\\',get_class($this));
        $class_name = end($parts);
-       $this->table = strtolower(str_replace('Table','',$class_name));
+       $this->table = strtolower(str_replace('Table','',$class_name).'s');
 
 
       }
@@ -25,7 +25,7 @@ use \Core\Database\Database;
   
     public function all(){
 
-      return $this->db->query('SELECT * FROM articles');
+      return $this->query('SELECT * FROM'.$this->table);
 
     }
 

@@ -6,7 +6,7 @@ use \App\Table\Article;
 
 $categorie = Categorie::find($_GET['id']);
 
-if($categorie ===false){
+if($categorie === false){
     \App\App::notFound();
 }
    

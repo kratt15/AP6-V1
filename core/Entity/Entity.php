@@ -3,6 +3,7 @@ namespace Core\Entity;
 
     class Entity{
 
+        
         public function __get($key){
          
             $method = 'get'. ucfirst($key);
@@ -10,7 +11,9 @@ namespace Core\Entity;
             $this->$key =$this->$method();
     
             return $this->$key;
+
         }
+
     }
 
 

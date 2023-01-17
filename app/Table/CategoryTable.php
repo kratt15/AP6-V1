@@ -5,7 +5,7 @@
     
     class CategoryTable  extends Table {
 
-        
+        protected $table ="categorie";
     }
 
 ?>
