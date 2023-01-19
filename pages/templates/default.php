@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   
  
-    <title><?= App::getInstance()->title;  ?></title>
+   / <title><?= App::getInstance()->title;  ?></title>
 
-    <link rel="canonical" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <!-- <link rel="canonical" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"> -->
 
     
 

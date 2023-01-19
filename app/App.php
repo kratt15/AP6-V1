@@ -6,7 +6,9 @@ use Core\Database\MysqlDatabase;
     class App{
 
         public $title ="Mon super site";
+
         private $db_instance;
+
         private static $_instance;
         
         public static function getInstance(){
@@ -22,13 +24,15 @@ use Core\Database\MysqlDatabase;
             require ROOT.'/app/Autoloader.php';
                App\Autoloader::register();
 
-            require ROOT.'/core/Autoloader.php';
+            require ROOT.'../core/Autoloader.php';
                Core\Autoloader::register(); 
         }
         // factory
         public  function getTable($name){
 
-            $class_name='\\App\\Table\\'.ucfirst($name).'Table';
+            // $class_name='\\App\\Table\\'.ucfirst($name).'Table';
+            $class_name ='\\App\\Table\\'.ucfirst($name).'Table';
+
 
             return new $class_name($this->getDb());
         }
