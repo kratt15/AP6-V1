@@ -7,7 +7,7 @@ class CategoryEntity extends Entity{
 
     public function getUrl(){
 
-        return 'index.php?p=categorie&id='.$this->id_cat;
+        return 'index.php?p=posts.category&id='.$this->id_cat;
     }
 
    

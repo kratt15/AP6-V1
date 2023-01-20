@@ -5,21 +5,29 @@
 
     App::load();
    
-    if (isset($_GET['page'])){
+    if (isset($_GET['p'])){
 
-        $page =$_GET['page'];
+        $p =$_GET['p'];
 
     }else{
 
-        $page ='home';
+        $p ='home';
 
     }
     
     ob_start();
 
-    if($page === 'home' ){
+    if($p === 'home' ){
 
-        require ROOT.'/pages/articles/home.php';
+        require ROOT.'/pages/posts/home.php';
+
+    } elseif ($p ==='posts.category')
+    {
+        require ROOT.'/pages/posts/category.php';
+    }
+    elseif ($p ==='posts.show')
+    {
+        require ROOT.'/pages/posts/show.php';
     }
     $content = ob_get_clean();
 

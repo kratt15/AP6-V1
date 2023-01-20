@@ -12,6 +12,7 @@ use Core\Database\MysqlDatabase;
         private static $_instance;
         
         public static function getInstance(){
+            
            if (is_null(self::$_instance)) {
 
              self::$_instance = new App();
@@ -20,7 +21,9 @@ use Core\Database\MysqlDatabase;
         }
 
         public static function load(){
+
             session_start();
+
             require ROOT.'/app/Autoloader.php';
                App\Autoloader::register();
 

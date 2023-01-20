@@ -29,6 +29,17 @@ use \Core\Database\Database;
 
     }
 
+    public  function find($id){
+
+      return $this->query("
+      SELECT  *
+      FROM {$this->table}
+      WHERE id_cat= ?
+      
+           ",[$id],true);
+  
+  }
+  
 
     public function query($statement, $attributes = null ,$one = false){
 
