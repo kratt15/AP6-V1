@@ -21,7 +21,7 @@ $posts = App::getInstance()->getTable('Post')->all();
                 <td><?= $post->id; ?></td>
                 <td><?= $post->titre; ?></td>
                 <td>
-                    <a href="?p=posts.&id=<?= $post->id;?>" class="btn btn-primary">Editer</a>
+                    <a href="?p=posts.edit&id=<?= $post->id;?>" class="btn btn-primary">Editer</a>
                 </td>
             </tr>
         <?php endforeach ?>

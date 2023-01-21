@@ -1,24 +1,15 @@
 <?php
 use \Core\HTML\BootstrapForm;
 
-$form = new BootstrapForm($_POST);
 
-if(!empty($_POST)){
-    $auth = new \Core\Auth\DBAuth(App::getInstance()->getDb());
-    if($auth->login($_POST['username'],$_POST['password'])){
-        header('Location: admin.php');
-    }else{
+$post = App::getInstance()->getTable('Post')->find($_GET['id']);
 
-        ?>
-        <div class="alert alert-danger"> identifiant incorrect </div>
-       <?php
-        
-    }
-}
- 
+$form = new BootstrapForm($post);
+
+
 ?>
 <form  method="post">
-    <?= $form->input('username','Pseudo');?>
-    <?= $form->input('password','Mot de passe',['type'=>'password']);?>
-    <button class=" mt-3 btn btn-primary ">Envoyer</button>
+    <?= $form->input('titre','Tire de l\'article');?>
+    <?= $form->input('contenu','Contenu',['type'=>'textarea']);?>
+    <button class=" mt-3 btn btn-primary ">Enregister</button>
 </form>
