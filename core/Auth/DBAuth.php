@@ -21,7 +21,10 @@ namespace Core\Auth;
         public function login($username ,$password) {
 
             $user =$this->db->prepare('SELECT * FROM users WHERE username = ?',[$username],null,true);
-            // var_dump($user);
+          if ($user){
+            return $user->password === sha1($password);
+          }
+          return false;
         }
 
         public  function logged(){

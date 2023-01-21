@@ -8,8 +8,8 @@ if(!empty($_POST)){
     if($auth->login($_POST['username'],$_POST['password'])){
         die('connecté !');
     }else{
-        die('pas connecté');
-        var_dump($_POST['username']);
+        die('pas connecté !');
+        
     }
 }
  
