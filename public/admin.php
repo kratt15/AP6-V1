@@ -34,9 +34,9 @@ use Core\Auth\DBAuth;
 
         require ROOT.'/pages/admin/posts/index.php';
 
-    } elseif ($p ==='posts.category')
+    } elseif ($p ==='posts.edit')
     {
-        require ROOT.'/pages/admin/posts/category.php';
+        require ROOT.'/pages/admin/posts/edit.php';
     }
     elseif ($p ==='posts.show')
     {

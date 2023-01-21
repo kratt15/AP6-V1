@@ -11,6 +11,12 @@ namespace Core\Auth;
 
 
         }
+         public function getUserId(){
+            if($this->logged()){
+                return $_SESSION['auth'];
+            }
+            return false;
+         }
         /**
          * @param $username
          * @param $password
@@ -22,7 +28,10 @@ namespace Core\Auth;
 
             $user =$this->db->prepare('SELECT * FROM users WHERE username = ?',[$username],null,true);
           if ($user){
-            return $user->password === sha1($password);
+            if($user->password === sha1($password)){
+                $_SESSION['auth']=$user->id;
+                return true;
+            }
           }
           return false;
         }

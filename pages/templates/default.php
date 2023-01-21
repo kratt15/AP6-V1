@@ -86,7 +86,7 @@
   </header>
 
   <main>
-    <h1>Start </h1>
+   
     <p class="fs-5 col-md-8"><?=  $content;  ?></p>
 
   
@@ -96,7 +96,7 @@
     
   </main>
   <footer class="pt-5 my-5 text-muted border-top">
-    Created by the Bootstrap team &middot; &copy; 2022
+    Created by sidneyKratt &middot; &copy; 2022
   </footer>
 </div>
 
