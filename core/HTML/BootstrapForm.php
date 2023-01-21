@@ -16,7 +16,7 @@
          public function input($name,$label,$options=[]){
              $type=isset($options['type']) ? $options['type'] : 'text';
              return $this->surround(
-                 '<label>' . $label . '</label><input type="'.$type.'" name="'. $name .' " value="'. $this->getValue($name) . '" class="form-control">'
+                 '<label>' . $label . '</label><input type="'.$type.'" name="'.$name.'" value="'. $this->getValue($name) . '" class="form-control">'
              );
          }
          public function submit(){
