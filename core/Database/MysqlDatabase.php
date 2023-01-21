@@ -37,9 +37,13 @@ use \PDO;
         public function query($statement,$class_name = NULL,$one = false){
 
             $req=$this->getPDO()->query($statement);
+
             if ($class_name === NULL){
+
                 $req->setFetchMode(PDO::FETCH_OBJ);   
+
             }else{
+
                 $req->setFetchMode(PDO::FETCH_CLASS,$class_name);
 
             }
@@ -61,13 +65,22 @@ use \PDO;
             
         }
 
-        public function prepare($statement,$attributes,$class_name,$one=false){
+        public function prepare($statement,$attributes,$class_name = null,$one=false){
 
             $req = $this->getPDO()->prepare($statement);
 
             $req->execute($attributes);
 
-            $req->setFetchMode(PDO::FETCH_CLASS,$class_name);
+            if ($class_name === NULL){
+
+                $req->setFetchMode(PDO::FETCH_OBJ);   
+
+            }else{
+                
+                $req->setFetchMode(PDO::FETCH_CLASS,$class_name);
+
+            }
+
 
             if($one) {
 

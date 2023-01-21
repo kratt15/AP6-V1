@@ -86,7 +86,7 @@
   </header>
 
   <main>
-    <h1>Get started </h1>
+    <h1>Start </h1>
     <p class="fs-5 col-md-8"><?=  $content;  ?></p>
 
   
