@@ -11,19 +11,21 @@ class Form{
 
        public $surround = 'p';
 
-       public function construct($data = array()){
+       public function __construct($data = array()){
            $this->data = $data;
        }
        protected function surround($html){
            return "<{$this->surround}>{$html}</{$this->surround}>";
        }
+
+       
        protected function getValue($index){
         
         if(is_object($this->data)){
+
             return $this->data->$index;
-        }else{
-            return isset($this->data[$index]) ? $this->data[$index] : null;
         }
+         return isset($this->data[$index]) ? $this->data[$index] : null;
           
        }
    

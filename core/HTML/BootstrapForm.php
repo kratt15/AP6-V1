@@ -22,16 +22,31 @@
              if($type ==='textarea'){
 
                 $input= '<textarea  name="'.$name.'" class="form-control">'. $this->getValue($name).'</textarea>';
+                // var_dump($this->getValue($name));
             
             }else{
-                $input= ' <input type="'.$type.'" name="'.$name.'" value="'.$this->getValue($name). '" class="form-control">';
+                
+                $input= ' <input type="'.$type.'" name="'.$name.'" value="'.$this->getValue($name).'" class="form-control">';
+                // var_dump($this->getValue($name));
              }
             
              return $this->surround($label.$input);
          }
 
+         public function select($name,$label,$options){
+            $label='<label>' . $label . '</label>';
+
+            $input ='<select class="form-control" name="'.$name.'">';
+            foreach($options as $k => $v){
+
+                $input.="<option value='$k'>$v</option>";
+            }
+            
+            return $this->surround($label.$input);
+         }
+
          public function submit(){
-             return $this->surround('<button type="submit" class="btn btn-primary">Envoyer</button>');
+             return $this->surround('<button type="submit" class="mt-3 btn btn-primary">Envoyer</button>');
          }
      }
 

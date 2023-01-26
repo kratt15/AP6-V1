@@ -37,6 +37,13 @@ use \PDO;
         public function query($statement,$class_name = NULL,$one = false){
 
             $req=$this->getPDO()->query($statement);
+            if(
+                strpos($statement,'UPDATE')=== 0 ||
+                strpos($statement,'INSERT')=== 0 ||
+                strpos($statement,'DELETE')=== 0
+            ){
+                return $req;
+            }
 
             if ($class_name === NULL){
 
@@ -69,7 +76,14 @@ use \PDO;
 
             $req = $this->getPDO()->prepare($statement);
 
-            $req->execute($attributes);
+            $res = $req->execute($attributes);
+            if(
+                strpos($statement,'UPDATE') === 0 ||
+                strpos($statement,'INSERT') === 0 ||
+                strpos($statement,'DELETE') === 0
+            ){
+                return $res;
+            }
 
             if ($class_name === NULL){
 

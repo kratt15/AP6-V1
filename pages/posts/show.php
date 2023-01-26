@@ -8,7 +8,7 @@ $app = App::getInstance();
 $post = $app->getTable('Post')->find($_GET['id']);
 
 
- if($post === false){
+  if($post === false){
 
   $app->notFound();
 }

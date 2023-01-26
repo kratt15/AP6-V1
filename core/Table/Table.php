@@ -39,7 +39,40 @@ use \Core\Database\Database;
            ",[$id],true);
   
   }
+
+
+    public function update($id,$fields){
+
+  $sql_parts =[];
+  $attirbutes=[];
+
+  foreach($fields as $k => $v){
+
+    $sql_parts[]="$k = ?";
+    $attributes[]=$v;
+
+  }
+  $attributes[]=$id;
   
+
+ $sql_part=implode(',',$sql_parts);
+ 
+  // die();
+  return $this->query("UPDATE {$this->table} SET $sql_part WHERE id=? ",$attributes,true);
+
+}
+  
+public function extraire($key,$value){
+      $records =$this->all();
+      $return=[];
+      foreach($records as $v){
+        $return[$v->$key] = $v->$value;
+
+      }
+      return $return;
+
+    
+}
 
     public function query($statement, $attributes = null ,$one = false){
 
