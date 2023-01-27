@@ -38,9 +38,17 @@ use Core\Auth\DBAuth;
     {
         require ROOT.'/pages/admin/posts/edit.php';
     }
+    elseif ($p ==='posts.create')
+    {
+        require ROOT.'/pages/admin/posts/create.php';
+    }
     elseif ($p ==='posts.show')
     {
-        require ROOT.'/pages/admin/posts/show.php';
+        require ROOT.'/pages/posts/show.php';
+    }
+    elseif ($p ==='posts.delete')
+    {
+        require ROOT.'/pages/admin/posts/delete.php';
     }
     $content = ob_get_clean();
 

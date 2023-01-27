@@ -52,7 +52,7 @@
    
          */
         public function find($id){
-            return $this->query(" SELECT  articles.id, articles.titre ,articles.dateArticle, articles.contenu ,categories.titre as categorie 
+            return $this->query(" SELECT  articles.id, articles.titre ,articles.dateArticle, articles.contenu ,articles.id_cat,categories.titre as categorie 
             FROM articles  
             LEFT JOIN categories
             ON articles.id_cat = categories.id_cat

@@ -44,7 +44,7 @@ use \Core\Database\Database;
     public function update($id,$fields){
 
   $sql_parts =[];
-  $attirbutes=[];
+  $attributes=[];
 
   foreach($fields as $k => $v){
 
@@ -61,11 +61,41 @@ use \Core\Database\Database;
   return $this->query("UPDATE {$this->table} SET $sql_part WHERE id=? ",$attributes,true);
 
 }
+
+public function creer($fields){
+
+  $sql_parts =[];
+  $attribues=[];
+
+  foreach($fields as $k => $v){
+
+    $sql_parts[]="$k = ?";
+    $attribues[]=$v;
+
+  }
   
+ 
+
+ $sql_part=implode(',',$sql_parts);
+ 
+  // die();
+  return $this->query("INSERT INTO {$this->table} SET $sql_part", $attribues,true);
+
+}
+  
+public function delete($id,){
+
+  
+ 
+  // die();
+  return $this->query("DELETE FROM {$this->table}  WHERE id=? ",[$id],true);
+
+}
 public function extraire($key,$value){
       $records =$this->all();
       $return=[];
       foreach($records as $v){
+
         $return[$v->$key] = $v->$value;
 
       }

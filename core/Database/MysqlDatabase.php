@@ -110,7 +110,11 @@ use \PDO;
 
             return $datas;
         }
+        public function lastInsertId(){
 
+            return $this->getPDO()->lastInsertId();
+            
+        }
 
 
 

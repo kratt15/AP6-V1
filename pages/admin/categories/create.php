@@ -1,8 +1,8 @@
 <?php
 use \Core\HTML\BootstrapForm;
-$postTable = App::getInstance()->getTable('Post');
+$postTable = App::getInstance()->getTable('Categories');
 if(!empty($_POST)){
-    $result = $postTable->update($_GET['id'],[
+    $result = $postTable->creer([
     'titre'=> $_POST['titre'],
     'contenu'=> $_POST['contenu'],
     'id_cat'=> $_POST['id_cat']
@@ -10,31 +10,27 @@ if(!empty($_POST)){
 
 if($result){
 
+// header('Location: admin.php?p=posts.edit&id='. App::getInstance()->getDb()->lastInsertId());
 
-    ?>  
-    <div class="alert alert-success">
-        Modification reuissi ✅
-    </div>
-    
-    
-    <?php
-    // header('Location:../pages/posts/show.php');
+header('Location: admin.php?p=home');
+
 }
    
 }
 
 
-$post = $postTable->find($_GET['id']);
+// $post = $postTable->find($_GET['id']);
 // var_dump($post);
 $categories = App::getInstance()->getTable('Category')->extraire('id_cat','titre');
 
-$form = new BootstrapForm($post);
+$form = new BootstrapForm($_POST);
 // var_dump($form);
 
 ?>
 
 <form  method="post">
-    <?= $form->select('id_cat','Catégorie',$categories);?>
+
+    <?= $form->select('id_cat','Catégories',$categories);?>
     
     <?= $form->input('titre','Titre de l\'article');?>
    

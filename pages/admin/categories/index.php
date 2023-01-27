@@ -1,5 +1,5 @@
 <?php
-$posts = App::getInstance()->getTable('Post')->all();
+$categories= App::getInstance()->getTable('Categories')->all();
 
 ?>
 <h1 >Administrer les articles</h1>
@@ -17,7 +17,7 @@ $posts = App::getInstance()->getTable('Post')->all();
     </thead>
     <tbody>
         <?php  
-            foreach($posts as $post): 
+            foreach($categories as $categorie): 
         ?>
             <tr>
                 <td><?= $post->id; ?></td>
