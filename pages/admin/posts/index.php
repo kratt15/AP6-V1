@@ -5,6 +5,7 @@ $posts = App::getInstance()->getTable('Post')->all();
 <h1 >Administrer les articles</h1>
 <div class="creation">
   <a href="?p=posts.create" class="btn btn-success">Ajouter</a>  
+  <a href="?p=categories.home" class="btn btn-primary">Categories</a> 
 </div>
 <table class="table">
     <thead>

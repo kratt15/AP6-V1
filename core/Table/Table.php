@@ -60,6 +60,26 @@ use \Core\Database\Database;
   // die();
   return $this->query("UPDATE {$this->table} SET $sql_part WHERE id=? ",$attributes,true);
 
+ }
+public function update_cat($id,$fields){
+
+  $sql_parts =[];
+  $attributes=[];
+
+  foreach($fields as $k => $v){
+
+    $sql_parts[]="$k = ?";
+    $attributes[]=$v;
+
+  }
+  $attributes[]=$id;
+  
+
+ $sql_part=implode(',',$sql_parts);
+ 
+  // die();
+  return $this->query("UPDATE {$this->table} SET $sql_part WHERE id_cat=? ",$attributes,true);
+
 }
 
 public function creer($fields){
@@ -83,12 +103,20 @@ public function creer($fields){
 
 }
   
-public function delete($id,){
+public function delete($id){
 
   
  
   // die();
   return $this->query("DELETE FROM {$this->table}  WHERE id=? ",[$id],true);
+
+}
+public function delete_cat($id){
+
+  
+ 
+  // die();
+  return $this->query("DELETE FROM {$this->table}  WHERE id_cat=? ",[$id],true);
 
 }
 public function extraire($key,$value){

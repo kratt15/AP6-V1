@@ -30,7 +30,7 @@ use Core\Auth\DBAuth;
     
     ob_start();
 
-    if($p === 'home' ){
+    if($p === 'posts.home' ){
 
         require ROOT.'/pages/admin/posts/index.php';
 
@@ -49,6 +49,23 @@ use Core\Auth\DBAuth;
     elseif ($p ==='posts.delete')
     {
         require ROOT.'/pages/admin/posts/delete.php';
+
+    } elseif ($p ==='categories.edit')
+    {
+        require ROOT.'/pages/admin/categories/edit.php';
+    }
+    elseif ($p ==='categories.create')
+    {
+        require ROOT.'/pages/admin/categories/create.php';
+    }
+  
+    elseif ($p ==='categories.delete')
+    {
+        require ROOT.'/pages/admin/categories/delete.php';
+    }
+    elseif ($p ==='categories.home')
+    {
+        require ROOT.'/pages/admin/categories/index.php';
     }
     $content = ob_get_clean();
 

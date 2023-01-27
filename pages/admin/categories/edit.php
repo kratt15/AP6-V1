@@ -1,11 +1,9 @@
 <?php
 use \Core\HTML\BootstrapForm;
-$postTable = App::getInstance()->getTable('Post');
+$categorieTable = App::getInstance()->getTable('Category');
 if(!empty($_POST)){
-    $result = $postTable->update($_GET['id'],[
-    'titre'=> $_POST['titre'],
-    'contenu'=> $_POST['contenu'],
-    'id_cat'=> $_POST['id_cat']
+    $result = $categorieTable->update_cat($_GET['id'],[
+    'titre'=> $_POST['titre'] 
  ]);
 
 if($result){
@@ -18,27 +16,27 @@ if($result){
     
     
     <?php
-    // header('Location:../pages/posts/show.php');
+
+header('Location: admin.php?p=categories.home');
+    
 }
    
 }
 
 
-$post = $postTable->find($_GET['id']);
+$categories = $categorieTable->find($_GET['id']);
 // var_dump($post);
-$categories = App::getInstance()->getTable('Category')->extraire('id_cat','titre');
 
-$form = new BootstrapForm($post);
+$form = new BootstrapForm($categories);
 // var_dump($form);
 
 ?>
 
 <form  method="post">
-    <?= $form->select('id_cat','Catégorie',$categories);?>
-    
-    <?= $form->input('titre','Titre de l\'article');?>
    
-    <?= $form->input('contenu','Contenu',['type'=>'textarea']);?>
+    
+    <?= $form->input('titre','Titre de la categorie');?>
+   
    
     <?= $form->submit();?>
     

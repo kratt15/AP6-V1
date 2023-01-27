@@ -1,12 +1,14 @@
 <?php
 use \Core\HTML\BootstrapForm;
-$postTable = App::getInstance()->getTable('Post');
+$categoriesTable = App::getInstance()->getTable('Category');
 if(!empty($_POST)){
-    $result = $postTable->delete($_POST['id']);
+    $result = $categoriesTable->delete_cat($_POST['id']);
 
 
 
-header('Location:admin.php');
+    header('Location: admin.php?p=categories.home');
+
+// header('Location:admin.php');
     // header('Location:../pages/posts/show.php');
 }
    

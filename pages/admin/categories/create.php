@@ -1,18 +1,16 @@
 <?php
 use \Core\HTML\BootstrapForm;
-$postTable = App::getInstance()->getTable('Categories');
+$categoriesTable = App::getInstance()->getTable('Category');
 if(!empty($_POST)){
-    $result = $postTable->creer([
-    'titre'=> $_POST['titre'],
-    'contenu'=> $_POST['contenu'],
-    'id_cat'=> $_POST['id_cat']
+    $result = $categoriesTable->creer([
+    'titre'=> $_POST['titre']
  ]);
 
 if($result){
 
 // header('Location: admin.php?p=posts.edit&id='. App::getInstance()->getDb()->lastInsertId());
 
-header('Location: admin.php?p=home');
+ header('Location: admin.php?p=categories.home');
 
 }
    
@@ -30,11 +28,9 @@ $form = new BootstrapForm($_POST);
 
 <form  method="post">
 
-    <?= $form->select('id_cat','Catégories',$categories);?>
+  
     
-    <?= $form->input('titre','Titre de l\'article');?>
-   
-    <?= $form->input('contenu','Contenu',['type'=>'textarea']);?>
+    <?= $form->input('titre','Titre de la categorie');?>
    
     <?= $form->submit();?>
     
