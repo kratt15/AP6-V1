@@ -6,7 +6,7 @@ $form = new BootstrapForm($_POST);
 if(!empty($_POST)){
     $auth = new \Core\Auth\DBAuth(App::getInstance()->getDb());
     if($auth->login($_POST['username'],$_POST['password'])){
-        header('Location: admin.php');
+        header('Location: admin.php?p=posts.home');
     }else{
 
         ?>

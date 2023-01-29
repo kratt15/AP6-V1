@@ -52,7 +52,7 @@ use Core\Database\MysqlDatabase;
           return $this->db_instance;
 
         }  
-
+        
 
 
 
