@@ -1,22 +1,8 @@
-<?php
-use \Core\HTML\BootstrapForm;
-
-$form = new BootstrapForm($_POST);
-
-if(!empty($_POST)){
-    $auth = new \Core\Auth\DBAuth(App::getInstance()->getDb());
-    if($auth->login($_POST['username'],$_POST['password'])){
-        header('Location: admin.php?p=posts.home');
-    }else{
-
-        ?>
-        <div class="alert alert-danger"> identifiant incorrect </div>
-       <?php
-        
-    }
-}
- 
-?>
+<?php if($errors): ?>
+    
+            <div class="alert alert-danger"> identifiant ou mot de passe incorrect </div>
+           
+<?php endif; ?>
 <form  method="post">
     <?= $form->input('username','Pseudo');?>
     <?= $form->input('password','Mot de passe',['type'=>'password']);?>

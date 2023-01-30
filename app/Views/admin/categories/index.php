@@ -1,11 +1,8 @@
-<?php
-$categories= App::getInstance()->getTable('Category')->all();
 
-?>
 <h1 >Administrer les Catégories</h1>
 <div class="creation">
-  <a href="?p=categories.create" class="btn btn-success">Ajouter</a> 
-  <a href="?p=posts.home" class="btn btn-primary">Articles</a>  
+  <a href="?p=admin.categories.add" class="btn btn-success">Ajouter</a> 
+  <a href="?p=admin.posts.index" class="btn btn-primary">Articles</a>  
 </div>
 <table class="table">
     <thead>
@@ -18,15 +15,15 @@ $categories= App::getInstance()->getTable('Category')->all();
     </thead>
     <tbody>
         <?php  
-            foreach($categories as $categorie): 
+            foreach($items as $categorie): 
         ?>
             <tr>
                 <td><?= $categorie->id_cat; ?></td>
                 <td><?= $categorie->titre; ?></td>
                 <td>
-                    <a href="?p=categories.edit&id=<?= $categorie->id_cat;?>" class="btn btn-primary">Editer</a>
+                    <a href="?p=admin.categories.edit&id=<?= $categorie->id_cat;?>" class="btn btn-primary">Editer</a>
 
-                    <form action="?p=categories.delete" method="post" style="display: inline;">
+                    <form action="?p=admin.categories.delete" method="post" style="display: inline;">
                         <input type="hidden" name="id" value="<?= $categorie->id_cat;?>">
                         <button type="submit" class="btn btn-danger" >Supprimer</button>
                     </form>
